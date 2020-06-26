@@ -1,9 +1,9 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import { useFirestoreDocData, useFirestore, SuspenseWithPerf} from 'reactfire';
 import Layout from './components/layout/layout'
-function App() {
+
+const App = () => {
+
   return (
     <div className="App">
       <Layout>
