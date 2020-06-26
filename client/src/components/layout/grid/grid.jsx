@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useEffect,useRef} from 'react';
 import { Container,Row,Col } from 'react-bootstrap';
 import Pun from '../../puns/pun'
 import { useFirestoreDocData, useFirestore} from 'reactfire';
@@ -13,15 +13,19 @@ const Grid = (props) =>{
     const punRef = useFirestore().collection('namepuns').doc('punDocument')
     //subscribe to puns document
     const puns = useFirestoreDocData(punRef)
-
     //get values
-    const punLines = Object.values(puns)[0].props.searchName
-    console.log(punLines)
-
+    let punLines = useRef('')
+    //UseRef allows us to mutate the current within useEffect. Make sure to use.current
+    useEffect(() => {
+       punLines.current = Object.values(puns)[0][props.searchName]
+       console.log(punLines.current)
+    }, [puns,props.searchName])
+    //Rethink if this could pull too much information
+    //let transformedPuns = Object.keys(puns[0])
     return (
     <Container fluid>
      <Row>
-        <Col xs={12} sm={6} md={4} large={3} xl={2}  ><Pun Title={"testing punlines"} Text={punLines}/></Col>
+        <Col xs={12} sm={6} md={4} large={3} xl={2}  ><Pun Title={"testing punlines"} Text={punLines.current}/></Col>
         <Col xs={12} sm={6} md={4} large={3} xl={2} ><Pun Title={props.Title} Text={"yep"}/></Col>
         <Col xs={12} sm={6} md={4} large={3} xl={2} ><Pun Title={props.Title} Text={props.Text}/></Col>
         <Col xs={12} sm={6} md={4} large={3} xl={2} ><Pun Title={props.Title} Text={props.Text}/></Col>

@@ -2,7 +2,6 @@ import React,{useState} from 'react'
 import NavigationBar from '../navigationBar/navigationBar'
 import Grid from './grid/grid'
 import { SuspenseWithPerf } from 'reactfire'
-import { useEffect } from 'react'
 
 /**
  * Layout defines the layout of the main page, but also the whole app since so far it's really just one page
