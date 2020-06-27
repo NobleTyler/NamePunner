@@ -6,9 +6,7 @@ const App = () => {
 
   return (
     <div className="App">
-      <Layout>
-          <h1 className="header">{process.env.REACT_APP_NAME}</h1>
-      </Layout>
+      <Layout/>
     </div>
   );
 }

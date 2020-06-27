@@ -19,50 +19,35 @@ const Grid = props => {
   //UseRef allows us to mutate the current within useEffect. Make sure to use.current
   useEffect(() => {
     punLines.current = Object.values(puns)[0][props.searchName]
-    console.log(punLines.current)
   }, [puns, props.searchName])
   //returns array into predefined chunks
-  const chunkify = (arr, chunk = 4) =>{
-    return Array.from({ length: Math.ceil(arr.length / chunk) }, (v, i) =>
+  const chunkify = (arr=[], chunk = 4) => {
+      console.log(arr)
+        return Array.from({ length: Math.ceil(arr.length / chunk) }, (v, i) =>
       arr.slice(i * chunk, i * chunk + chunk)
     )
-}
-  
+
+  }
+
   //generates rows to put in the grid,feed in 2 dimmensional aray
-  const rowGenerator = ({ data }) => {
-    return (
-      
-        
-          
-    0    
-    )
+  const rowGenerator = (data) => {
+    data = chunkify(data)
+    return data.map(chunkArray => <Row>{cellGenerator(chunkArray)}</Row>)
   }
   //generates columns to put in the grid, feed in one dimensional array
   const cellGenerator = (data) => {
-    return(
-        data.map(pun => (
-        <Col xs={12} sm={6} md={4} large={3} xl={2}>
-            <Pun Title={props.searchName} Text={pun}/>
-        </Col>
-        ))
-    )
+    data = Array.from(data)
+    return data.map(pun => (
+      <Col xs={12} sm={6} md={4} large={3} xl={2}>
+        <Pun Title={props.searchName} Text={pun} />
+      </Col>
+    ))
   }
-  console.log(cellGenerator(['TestPun','testpun2','testpun3','testpun4','testpun5','testpun6']))
+ //TODO make title not the search name, have it be based on the request that is made when the user hits search maybe?
 
   return (
     <Container fluid>
-      <Row>
-          {cellGenerator(['TestPun','testpun2','testpun3'])}
-        <Col xs={12} sm={6} md={4} large={3} xl={2}>
-          <Pun Title={props.Title} Text={'yep'} />
-        </Col>
-        <Col xs={12} sm={6} md={4} large={3} xl={2}>
-          <Pun Title={props.Title} Text={props.Text} />
-        </Col>
-        <Col xs={12} sm={6} md={4} large={3} xl={2}>
-          <Pun Title={props.Title} Text={props.Text} />
-        </Col>
-      </Row>
+      {rowGenerator(punLines.current)}
     </Container>
   )
 }

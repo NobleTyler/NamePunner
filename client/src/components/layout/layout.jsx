@@ -1,5 +1,5 @@
 import React,{useState} from 'react'
-import NavigationBar from '../navigationBar/navigationBar'
+import Jumbo from '../JumboSearch/jumbo'
 import Grid from './grid/grid'
 import { SuspenseWithPerf } from 'reactfire'
 
@@ -8,7 +8,7 @@ import { SuspenseWithPerf } from 'reactfire'
  * @param {*} props 
  */
 const Layout = props => {
-  const [name,setName] = useState('hey')
+  const [name,setName] = useState('Please enter a name')
 
   const setNameHandler = (newName) =>{
     console.log(newName)
@@ -18,7 +18,7 @@ const Layout = props => {
 
   return (
     <React.Fragment>
-      <NavigationBar nameHandler={setNameHandler} />
+      <Jumbo nameHandler={setNameHandler}/>
       <SuspenseWithPerf fallback={'...loading puns'} traceId={'load-pun-grid'}>
         <Grid Title='real title' Text='Real Text' searchName={name}></Grid>
       </SuspenseWithPerf>
