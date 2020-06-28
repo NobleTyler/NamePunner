@@ -22,7 +22,6 @@ const Grid = props => {
   }, [puns, props.searchName])
   //returns array into predefined chunks
   const chunkify = (arr=[], chunk = 4) => {
-      console.log(arr)
         return Array.from({ length: Math.ceil(arr.length / chunk) }, (v, i) =>
       arr.slice(i * chunk, i * chunk + chunk)
     )
@@ -32,13 +31,12 @@ const Grid = props => {
   //generates rows to put in the grid,feed in 2 dimmensional aray
   const rowGenerator = (data) => {
     data = chunkify(data)
-    return data.map(chunkArray => <Row>{cellGenerator(chunkArray)}</Row>)
+    return data.map((chunkArray,index) => <Row key={index+data[0]}>{cellGenerator(chunkArray)}</Row>)
   }
   //generates columns to put in the grid, feed in one dimensional array
   const cellGenerator = (data) => {
-    data = Array.from(data)
-    return data.map(pun => (
-      <Col xs={12} sm={6} md={4} large={3} xl={2}>
+    return data.map((pun,index) => (
+      <Col key={index+pun} xs={12} sm={6} md={4} large={3} xl={2}>
         <Pun Title={props.searchName} Text={pun} />
       </Col>
     ))
@@ -46,7 +44,7 @@ const Grid = props => {
  //TODO make title not the search name, have it be based on the request that is made when the user hits search maybe?
 
   return (
-    <Container fluid>
+    <Container fluid key={4}>
       {rowGenerator(punLines.current)}
     </Container>
   )

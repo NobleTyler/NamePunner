@@ -10,15 +10,11 @@ import { SuspenseWithPerf } from 'reactfire'
 const Layout = props => {
   const [name,setName] = useState('Please enter a name')
 
-  const setNameHandler = (newName) =>{
-    console.log(newName)
-    setName(newName);
-  }
-
+ 
 
   return (
     <React.Fragment>
-      <Jumbo nameHandler={setNameHandler}/>
+      <Jumbo nameHandler={setName}/>
       <SuspenseWithPerf fallback={'...loading puns'} traceId={'load-pun-grid'}>
         <Grid Title='real title' Text='Real Text' searchName={name}></Grid>
       </SuspenseWithPerf>
