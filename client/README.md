@@ -5,6 +5,7 @@ ____________
 ## What is Name Punner
 Name punner is a simple application for when you've been meeting new people all day and you just can't seem to come up with any more name puns. It uses a database to retrieve only the best name based puns for you to use. 
 
+<<<<<<< HEAD
 ![First Build Name Punner](./../assets/ReadmeImages/NamePunner.jpg)
 
 ## This is pretty simple what is next?
@@ -40,4 +41,11 @@ npm start
 It runs perfectly well with a very small firebase database but I'm not sure how it will work when it begins to be loaded with too much /r/tinder data. If that happens the first fix I would make is possbily adding a search button so queries don't happen on each letter typed. 
 
 
+=======
+
+
+
+
+
+>>>>>>> master
 >This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
