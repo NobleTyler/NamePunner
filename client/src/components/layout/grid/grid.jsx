@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
 import Pun from '../../puns/pun'
+import './grid.css'
 import { useFirestoreDocData, useFirestore } from 'reactfire'
 
 /**
@@ -36,7 +37,7 @@ const Grid = props => {
   //generates columns to put in the grid, feed in one dimensional array
   const cellGenerator = (data) => {
     return data.map((pun,index) => (
-      <Col key={index+pun} xs={12} sm={6} md={4} large={3} xl={2}>
+      <Col className="Column" key={index+pun} xs={12} sm={6} md={4} large={3} xl={2}>
         <Pun Title={props.searchName} Text={pun} />
       </Col>
     ))
