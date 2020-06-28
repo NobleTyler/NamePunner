@@ -1,8 +1,10 @@
-import React, {useState} from 'react'
-import { Jumbotron, Form, FormControl, Button } from 'react-bootstrap'
-
+import React from 'react'
+import { Jumbotron, Form, FormControl} from 'react-bootstrap'
+/**
+ * Component for the jumbotron at the top of the page, requires nameHandler from props, to set the name used in the queries in layout
+ * @param {nameHandler} props 
+ */
 const Jumbo = props => {
-const [searchBar,setSearchBar] = useState()
   return (
     <Jumbotron>
       <h1>Welcome to name punner</h1>
@@ -13,9 +15,8 @@ const [searchBar,setSearchBar] = useState()
           placeholder='Enter name here'
           className='form-control-lg'
           width='100%'
-          onChange={event => setSearchBar(event.target.value)}
+          onChange={event => props.nameHandler(event.target.value)}
         />
-        <Button variant='outline-dark' onClick={props.nameHandler(searchBar)}>Search</Button>
       </Form>
     </Jumbotron>
   )
