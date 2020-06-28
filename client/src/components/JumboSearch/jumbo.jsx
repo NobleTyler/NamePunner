@@ -7,7 +7,7 @@ import { Jumbotron, Form, FormControl} from 'react-bootstrap'
 const Jumbo = props => {
   return (
     <Jumbotron>
-      <h1>Welcome to name punner</h1>
+      <h1>Welcome to Name Punner</h1>
       <p>Enter in the search bar the names you need puns for</p>
       <Form>
         <FormControl
