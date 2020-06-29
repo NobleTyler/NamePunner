@@ -41,11 +41,4 @@ npm start
 It runs perfectly well with a very small firebase database but I'm not sure how it will work when it begins to be loaded with too much /r/tinder data. If that happens the first fix I would make is possbily adding a search button so queries don't happen on each letter typed. 
 
 
-=======
-
-
-
-
-
->>>>>>> master
 >This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
