@@ -5,7 +5,7 @@ ____________
 ## What is Name Punner
 Name punner is a simple application for when you've been meeting new people all day and you just can't seem to come up with any more name puns. It uses a database to retrieve only the best name based puns for you to use. 
 
-![First Build Name Punner](./../assets/ReadmeImages/NamePunner.jpg)
+![First Build Name Punner]('./../assets/ReadmeImages/NamePunner.jpg)
 
 ## This is pretty simple what is next?
 I'm glad you asked. As of now our current road map is as follows
