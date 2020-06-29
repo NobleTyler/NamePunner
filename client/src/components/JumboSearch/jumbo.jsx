@@ -1,8 +1,8 @@
 import React from 'react'
-import { Jumbotron, Form, FormControl} from 'react-bootstrap'
+import { Jumbotron, Form, FormControl } from 'react-bootstrap'
 /**
  * Component for the jumbotron at the top of the page, requires nameHandler from props, to set the name used in the queries in layout
- * @param {nameHandler} props 
+ * @param {nameHandler} props
  */
 const Jumbo = props => {
   return (

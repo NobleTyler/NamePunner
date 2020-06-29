@@ -8,7 +8,7 @@ import './pun.css'
  */
 const Pun = props => {
   return (
-    <Card style={{flex:1}} bg='dark' text='white' style={{ width: '18rem' }}>
+    <Card style={{ flex: 1 }} bg='dark' text='white' style={{ width: '18rem' }}>
       <Card.Body>
         <Card.Title>{props.Title}</Card.Title>
         <Card.Text>{props.Text}</Card.Text>

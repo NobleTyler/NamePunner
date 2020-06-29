@@ -1,20 +1,18 @@
-import React,{useState} from 'react'
+import React, { useState } from 'react'
 import Jumbo from '../JumboSearch/jumbo'
 import Grid from './grid/grid'
 import { SuspenseWithPerf } from 'reactfire'
 
 /**
  * Layout defines the layout of the main page, but also the whole app since so far it's really just one page
- * @param {*} props 
+ * @param {*} props
  */
 const Layout = props => {
-  const [name,setName] = useState('Please enter a name')
-
- 
+  const [name, setName] = useState('Please enter a name')
 
   return (
     <React.Fragment>
-      <Jumbo nameHandler={setName}/>
+      <Jumbo nameHandler={setName} />
       <SuspenseWithPerf fallback={'...loading puns'} traceId={'load-pun-grid'}>
         <Grid Title='real title' Text='Real Text' searchName={name}></Grid>
       </SuspenseWithPerf>

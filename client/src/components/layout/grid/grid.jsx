@@ -22,27 +22,36 @@ const Grid = props => {
     punLines.current = Object.values(puns)[0][props.searchName]
   }, [puns, props.searchName])
   //returns array into predefined chunks
-  const chunkify = (arr=[], chunk = 4) => {
-        return Array.from({ length: Math.ceil(arr.length / chunk) }, (v, i) =>
+  const chunkify = (arr = [], chunk = 4) => {
+    return Array.from({ length: Math.ceil(arr.length / chunk) }, (v, i) =>
       arr.slice(i * chunk, i * chunk + chunk)
     )
-
   }
 
   //generates rows to put in the grid,feed in 2 dimmensional aray
-  const rowGenerator = (data) => {
+  const rowGenerator = data => {
     data = chunkify(data)
-    return data.map((chunkArray,index) => <Row key={index+data[0]}>{cellGenerator(chunkArray)}</Row>)
+    return data.map((chunkArray, index) => {
+      return <Row key={index + data[0]}>{cellGenerator(chunkArray)}</Row>
+    })
   }
   //generates columns to put in the grid, feed in one dimensional array
-  const cellGenerator = (data) => {
-    return data.map((pun,index) => (
-      <Col className="Column" key={index+pun} xs={12} sm={6} md={4} large={3} xl={2}>
+  const cellGenerator = data => {
+    return data.map((pun, index) => (
+      <Col
+        className='Column'
+        key={index + pun}
+        xs={12}
+        sm={6}
+        md={4}
+        large={3}
+        xl={2}
+      >
         <Pun Title={props.searchName} Text={pun} />
       </Col>
     ))
   }
- //TODO make title not the search name, have it be based on the request that is made when the user hits search maybe?
+  //TODO make title not the search name, have it be based on the request that is made when the user hits search maybe?
 
   return (
     <Container fluid key={4}>
