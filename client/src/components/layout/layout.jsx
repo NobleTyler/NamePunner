@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import Jumbo from '../JumboSearch/jumbo'
-import Grid from './grid/grid'
+import Jumbo from '../JumboSearch/Jumbo'
+import Grid from './Grid/Grid'
 import { SuspenseWithPerf } from 'reactfire'
 
 /**

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Card } from 'react-bootstrap'
-import './pun.css'
+import './Pun.css'
 /**
  * This will be the component where we display puns.
  * Only displays text right now
@@ -8,7 +8,7 @@ import './pun.css'
  */
 const Pun = props => {
   return (
-    <Card style={{ flex: 1 }} bg='dark' text='white' style={{ width: '18rem' }}>
+    <Card style={{ flex: 1, width: '18rem' }} bg='dark' text='white' >
       <Card.Body>
         <Card.Title>{props.Title}</Card.Title>
         <Card.Text>{props.Text}</Card.Text>

@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
-import Pun from '../../puns/pun'
-import './grid.css'
+import Pun from '../../Puns/Pun'
+import './Grid.css'
 import { useFirestoreDocData, useFirestore } from 'reactfire'
 
 /**
