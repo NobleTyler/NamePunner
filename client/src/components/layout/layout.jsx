@@ -15,7 +15,7 @@ const Layout = props => {
       <Jumbo nameHandler={setName} />
       <SuspenseWithPerf fallback={'...loading puns'} traceId={'load-pun-grid'}>
         <Grid Title='real title' Text='Real Text' searchName={name}></Grid>
-        <Input name={name}/>
+        <Input name={name} />
       </SuspenseWithPerf>
       {props.children}
     </React.Fragment>
