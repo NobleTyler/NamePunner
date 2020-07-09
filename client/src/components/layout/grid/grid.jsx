@@ -43,7 +43,6 @@ const Grid = props => {
         key={index + pun}
         xs={12}
         sm={6}
-        md={4}
         large={3}
         xl={2}
       >
