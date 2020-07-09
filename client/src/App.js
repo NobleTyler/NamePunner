@@ -1,9 +1,10 @@
-import React from 'react';
+import React,{useState,useEffect} from 'react';
 import './App.css';
 import Layout from './components/Layout/Layout'
 
 const App = () => {
-  const [test, settest] = useState('')
+  //TODO setup backend this should work if it
+  /*  const [test, settest] = useState('')
   useEffect(() => {
     return () => {
       callBackendAPI()
@@ -21,10 +22,10 @@ const App = () => {
     throw Error(body.message) 
   }
   console.log(body)
-}
+}*/
   return (
     <div className="App">
-      <h1>{test}</h1>
+      {/*<h1>{test}</h1>*/}
       <Layout/>
     </div>
   );
