@@ -15,12 +15,12 @@ const Grid = props => {
     .doc('punDocument')
   //subscribe to puns document
   const puns = useFirestoreDocData(punRef)
-  //get values
   let punLines = useRef('')
   //UseRef allows us to mutate the current within useEffect. Make sure to use.current
   useEffect(() => {
     punLines.current = Object.values(puns)[0][props.searchName]
   }, [puns, props.searchName])
+ 
   //returns array into predefined chunks
   const chunkify = (arr = [], chunk = 4) => {
     return Array.from({ length: Math.ceil(arr.length / chunk) }, (v, i) =>
