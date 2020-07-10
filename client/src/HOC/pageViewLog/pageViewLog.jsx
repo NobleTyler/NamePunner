@@ -1,15 +1,16 @@
-import {useAnalytics} from 'reactfire'
-import {useEffect} from 'react'
-import {useLocation} from 'react-router-dom'
-//Used for gathering analytics whenever page is loaded
+import { useAnalytics } from 'reactfire';
+import {useEffect} from 'react';
 
-const Logger = () =>{
-    const location = useLocation();
-const analytics = useAnalytics();
+const Logger = ({ location }) => {
+  const analytics = useAnalytics();
+
+  // By passing `location.pathname` to the second argument of `useEffect`,
+  // we only log on first render and when the `pathname` changes
   useEffect(() => {
-    analytics.logEvent('page-view',{path_name: location.pathname})
-  },[location.pathname,analytics])
-  return null
+    analytics.logEvent('page-view', { path_name: location.pathname });
+  }, [location.pathname,analytics]);
+
+  return null;
 }
 
 export default Logger
