@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import {FirebaseAppProvider} from 'reactfire';
+import {FirebaseAppProvider } from 'reactfire';
 import 'bootstrap/dist/css/bootstrap.css';
 import firebaseConfig from './config/config'
 
@@ -11,7 +11,7 @@ import firebaseConfig from './config/config'
 ReactDOM.render(
   <FirebaseAppProvider firebaseConfig={firebaseConfig}>
     <React.StrictMode>
-      <App />
+        <App/>
     </React.StrictMode>
   </FirebaseAppProvider>,
   document.getElementById('root')

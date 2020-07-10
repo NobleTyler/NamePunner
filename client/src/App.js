@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
 import Jumbo from "./components/JumboSearch/Jumbo";
-import { SuspenseWithPerf ,useAnalytics} from 'reactfire'
+import { SuspenseWithPerf } from 'reactfire'
 import Grid from './components/Layout/Grid/Grid'
+import {Spinner} from 'react-bootstrap'
 import Input from './components/SubmitPun/SubmitPun'
 import { BrowserRouter as Router, Route,Switch} from 'react-router-dom';
 import PageViewLog from './HOC/pageViewLog/pageViewLog'
@@ -11,9 +12,7 @@ const App = () => {
   //TODO setup backend this should work if it
   const [test, settest] = useState("");
   const [name, setName] = useState("");
-  const analytics = useAnalytics();
   useEffect(() => {
-    console.log("This runs right?");
     callBackendAPI()
       .then((res) => {
         settest(res.express);
@@ -31,29 +30,24 @@ const App = () => {
     }
     return body;
   };
-const grid = () => { 
-  return (
-    //<SuspenseWithPerf fallback={'...loading'} traceId={'load-pun-grid'}>
-      <Grid Title='real title' Text='Real Text' searchName={name} />
-    //</SuspenseWithPerf>
-   )
-}
 
 
   return (
-    <SuspenseWithPerf fallback={'...loading'} traceId={'load-pun-grid'}>
     <Router>
+      <SuspenseWithPerf fallback={<Spinner/>} >          
       <div className="App">
-          <Jumbo nameHandler={setName} />
           <Switch>
-            <Route exact path='/' render={grid} />
+          <Jumbo nameHandler={setName} />
+            <Route  path='/'>
+              <Grid Title='real title' Text='Real Text' searchName={name} />
+            </Route>
             <Route exact path='/submitPun' component={Input} name={name} />
           </Switch>
           <PageViewLog/>
         <h1>{test}</h1>
       </div>
+      </SuspenseWithPerf>
     </Router>
-    </SuspenseWithPerf>
   );
 };
 
