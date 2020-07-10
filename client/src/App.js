@@ -34,7 +34,7 @@ const App = () => {
       <div className='App'>
             <Jumbo nameHandler={setName} />
             <Routes name={name}/> 
-      {/* <PageViewLog />*/}
+       <PageViewLog />
       <h1>{test}</h1>
       </div>
   )
