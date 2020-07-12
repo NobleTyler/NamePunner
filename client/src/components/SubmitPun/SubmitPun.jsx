@@ -1,15 +1,19 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { Form, Button } from 'react-bootstrap';
+import propTypes from 'prop-types';
 /**
  * This Form is used to add new puns to the database if you find any.
  */
-const SubmitPun = (props) => {
+const SubmitPun = ({ name }) => {
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => console.log(`You should put this data in firebase${data}`);
 
+  SubmitPun.propTypes = {
+    name: propTypes.string,
+  };
   SubmitPun.defaultProps = {
-    name: ' ',
+    name: 'User',
   };
 
   return (
@@ -17,7 +21,7 @@ const SubmitPun = (props) => {
       <Form.Group>
         <Form.Label>
           New pun for:
-          {props.name}
+          {name}
         </Form.Label>
         <Form.Control
           as="textarea"
