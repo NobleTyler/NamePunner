@@ -8,7 +8,7 @@ import './grid.css';
 /**
  * This is the grid used in the layout. It's used to hold cards at the moment.
  * It reacts to screen size changes via bootstraps grid system
- * @param {*} props
+ * @param {searchName} props
  */
 const Grid = ({ searchName }) => {
   Grid.propTypes = {
@@ -57,7 +57,6 @@ const Grid = ({ searchName }) => {
    TODO make title not the search name,
    have it be based on the request that is made when the user hits search maybe?
    */
-
   return (
     <Container fluid key={4} className="gridContainer">
       {rowGenerator(punLines.current)}
