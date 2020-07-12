@@ -28,3 +28,7 @@ yarn-error.log*
 client/node_modules/.bin/
 
 package-lock.json
+
+client/src/config/config.js
+
+client/src/config/
