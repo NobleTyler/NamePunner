@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card } from 'react-bootstrap';
-import './Pun.css';
+import './pun.css';
 import propTypes from 'prop-types';
 /**
  * This will be the component where we display puns.

@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import { useFirestoreDocData, useFirestore } from 'reactfire';
+import shortid from 'shortid';
 import propTypes from 'prop-types';
 import Pun from '../../Puns/pun';
 import './grid.css';
@@ -8,7 +9,7 @@ import './grid.css';
 /**
  * This is the grid used in the layout. It's used to hold cards at the moment.
  * It reacts to screen size changes via bootstraps grid system
- * @param {searchName} props
+ * @param {*} props
  */
 const Grid = ({ searchName }) => {
   Grid.propTypes = {
@@ -38,7 +39,7 @@ const Grid = ({ searchName }) => {
   const cellGenerator = (data) => data.map((pun) => (
     <Col
       className="column-centered"
-      key={pun.id}
+      key={shortid.generate()}
       xs={12}
       sm={6}
       large={3}
@@ -51,12 +52,13 @@ const Grid = ({ searchName }) => {
   const rowGenerator = (data) => {
     const chunks = chunkify(data);
     return chunks.map((chunkArray) => (
-      <Row className="row-centered" key={chunkArray.id * -1}>{cellGenerator(chunkArray)}</Row>));
+      <Row className="row-centered" key={shortid.generate()}>{cellGenerator(chunkArray)}</Row>));
   };
   /*
    TODO make title not the search name,
    have it be based on the request that is made when the user hits search maybe?
    */
+
   return (
     <Container fluid key={4} className="gridContainer">
       {rowGenerator(punLines.current)}
