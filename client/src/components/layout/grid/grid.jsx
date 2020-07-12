@@ -2,8 +2,8 @@ import React, { useEffect, useRef } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import { useFirestoreDocData, useFirestore } from 'reactfire';
 import propTypes from 'prop-types';
-import Pun from '../../Puns/Pun';
-import './Grid.css';
+import Pun from '../../Puns/pun';
+import './grid.css';
 
 /**
  * This is the grid used in the layout. It's used to hold cards at the moment.

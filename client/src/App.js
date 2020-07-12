@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-filename-extension */
 import React, { useState, useEffect } from 'react';
 import './App.css';
-import Jumbo from './components/JumboSearch/Jumbo';
+import Jumbo from './components/JumboSearch/jumbo';
 import PageViewLog from './HOC/pageViewLog/pageViewLog';
 import Routes from './HOC/Routes/routes';
 

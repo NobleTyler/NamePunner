@@ -1,8 +1,8 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import propTypes from 'prop-types';
-import Grid from '../../components/Layout/Grid/Grid';
-import Input from '../../components/SubmitPun/SubmitPun';
+import Grid from '../../components/Layout/Grid/grid';
+import Input from '../../components/SubmitPun/submitPun';
 
 const Routes = ({ name }) => {
   Routes.propTypes = {
