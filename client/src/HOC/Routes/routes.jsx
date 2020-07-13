@@ -16,7 +16,9 @@ const Routes = ({ name }) => {
       <Route exact path="/">
         <Grid Title="real title" Text="Real Text" searchName={name} />
       </Route>
-      <Route path="/submitPun" component={Input} name={name} />
+      <Route path="/submitPun">
+        <Input searchName={name} />
+      </Route>
     </Switch>
   );
 };
