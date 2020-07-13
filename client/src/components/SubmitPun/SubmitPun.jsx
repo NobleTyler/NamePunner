@@ -9,7 +9,7 @@ import { useFirestore } from 'reactfire';
 const SubmitPun = ({ searchName }) => {
   // Set up hooks
   const { register } = useForm();
-  const { userPun, setUserPun } = useState('');
+  const [userPun, setUserPun] = useState('');
   const db = useFirestore();
 
   // Props validation
@@ -40,7 +40,7 @@ const SubmitPun = ({ searchName }) => {
           rows="1"
           name="punSumbission"
           ref={register({ required: true, minLength: 50, maxLength: 500 })}
-          onInput={(e) => setUserPun(e.target.value)}
+          onChange={(e) => setUserPun(e.target.value)}
         />
       </Form.Group>
       <Button variant="primary" type="submit">
