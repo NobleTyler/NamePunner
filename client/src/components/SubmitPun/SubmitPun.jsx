@@ -7,18 +7,12 @@ import { useFirestore } from 'reactfire';
  * This Form is used to add new puns to the database if you find any.
  */
 const SubmitPun = ({ searchName }) => {
+  // Set up hooks
   const { register } = useForm();
   const { userPun, setUserPun } = useState('');
   const db = useFirestore();
 
-  const PushToFirebase = () => {
-    console.log(`YO this got called did you press sumbit ${searchName} and ${userPun}`);
-    db.collection('namepuns').add({
-      name: searchName,
-      pun: userPun,
-    });
-  };
-
+  // Props validation
   SubmitPun.propTypes = {
     searchName: propTypes.string,
   };
@@ -26,6 +20,14 @@ const SubmitPun = ({ searchName }) => {
     searchName: 'User',
   };
 
+  // use firebase connection to add to collection
+  const PushToFirebase = () => {
+    console.log(`YO this got called did you press sumbit ${searchName} and ${userPun}`);
+    db.collection('namepuns').add({
+      name: searchName,
+      pun: userPun,
+    });
+  };
   return (
     <Form onSubmit={PushToFirebase}>
       <Form.Group>

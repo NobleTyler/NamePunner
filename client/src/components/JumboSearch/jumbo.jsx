@@ -5,17 +5,20 @@ import {
 import { Link, useLocation } from 'react-router-dom';
 import propTypes from 'prop-types';
 import './jumbo.css';
+
 /**
  * Component for the jumbotron at the top of the page
  * @param {nameHandler} props
  */
-
 const Jumbo = ({ nameHandler }) => {
+  // setup props validation
   Jumbo.propTypes = {
     // eslint-disable-next-line react/require-default-props
     nameHandler: propTypes.func,
   };
+  // setup Hooks used to grab the pathname later
   const location = useLocation();
+  // check which page we are on, to use in displaying buttons correctly
   const isLocationSubmit = location.pathname === '/submitPun';
   return (
     <>

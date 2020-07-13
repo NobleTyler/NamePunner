@@ -5,9 +5,10 @@ import propTypes from 'prop-types';
 /**
  * This will be the component where we display puns.
  * Only displays text right now
- * @param {} props
+ * @param {Title, Text} props
  */
 const Pun = ({ Title, Text }) => {
+  // Setup Props validation
   Pun.propTypes = {
     Title: propTypes.string,
     Text: propTypes.string,
@@ -16,6 +17,7 @@ const Pun = ({ Title, Text }) => {
     Title: 'Title',
     Text: 'Your pun here',
   };
+
   return (
     <Card style={{ flex: 1, width: '18rem' }} bg="dark" text="white">
       <Card.Body>

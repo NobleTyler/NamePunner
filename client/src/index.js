@@ -9,7 +9,10 @@ import { Spinner } from 'react-bootstrap';
 import firebaseConfig from './config/config';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-
+/**
+ * Outputs the entire app.
+ * Be wary when changing the order as there could be unintended side effects.
+*/
 ReactDOM.render(
   <BrowserRouter>
     <FirebaseAppProvider firebaseConfig={firebaseConfig}>
