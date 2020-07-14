@@ -1,4 +1,4 @@
-### Things to talk about during my interview
+# Things to talk about during my interview
 - Working with package.json and learning to configure that to use concurrent
 - Trying to get testing working
 - Passing around props and why I didn't use very many states or hooks
@@ -10,3 +10,8 @@
 - extensibility and not overengineering
 - What else I'm working on and what I'm gonna take from this for it
 
+### Code Review Notes
+- you can query easier with document collections then use usecollection hook
+- use collections instead of arrays because of built in functionality
+push doc should work
+- see if different way to strucutre collections
