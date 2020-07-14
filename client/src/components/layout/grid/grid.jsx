@@ -25,11 +25,11 @@ const Grid = ({ searchName }) => {
   // set up hooks to subscribe to puns
   const puns = useFirestoreDocData(punRef);
   const punLines = useRef('');
-
   // Use effect reloads the page whenever puns or searchName change and brings in new puns
   // UseRef allows us to mutate the current within useEffect. Make sure to use.current
+
   useEffect(() => {
-    punLines.current = Object.values(puns)[0][searchName];
+    punLines.current = Object(puns)[searchName];
   }, [puns, searchName]);
 
   // returns array into predefined chunks
