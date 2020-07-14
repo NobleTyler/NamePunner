@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Form, Button } from 'react-bootstrap';
 import propTypes from 'prop-types';
-import { useFirestore } from 'reactfire';
+import { useFirestore, useFirestoreDocData } from 'reactfire';
 /**
  * This Form is used to add new puns to the database if you find any.
  */
@@ -10,7 +10,10 @@ const SubmitPun = ({ searchName }) => {
   // Set up hooks
   const { register } = useForm();
   const [userPun, setUserPun] = useState('');
-  const db = useFirestore();
+  const punRef = useFirestore()
+    .collection('namepuns')
+    .doc('punDocument');
+  const puns = useFirestoreDocData(punRef);
 
   // Props validation
   SubmitPun.propTypes = {
@@ -22,11 +25,15 @@ const SubmitPun = ({ searchName }) => {
 
   // use firebase connection to add to collection
   const PushToFirebase = () => {
-    console.log(`YO this got called did you press sumbit ${searchName} and ${userPun}`);
-    db.collection('namepuns').add({
-      name: searchName,
-      pun: userPun,
-    });
+    // get the value we try to update and add it to an array
+    const arrayArg = Object(puns)[searchName] ? [userPun, ...Object(puns)[searchName]] : [userPun];
+    // set values in firebase to the new array argument
+    punRef.set({
+      [searchName]: arrayArg,
+    }, { merge: true })
+      .catch((error) => {
+        console.log('Error setting document:', error);
+      });
   };
   return (
     <Form onSubmit={PushToFirebase}>
