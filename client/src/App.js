@@ -33,12 +33,14 @@ const App = () => {
       .catch((err) => console.log(err));
   }, []);
 
+  // eslint-disable-next-line no-console
+  console.log(test);
+
   return (
     <div className="App">
       <Jumbo nameHandler={nameSetHandler} />
       <Routes name={name} />
       <PageViewLog />
-      <h1>{test}</h1>
     </div>
   );
 };
