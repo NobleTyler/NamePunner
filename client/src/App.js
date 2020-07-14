@@ -10,6 +10,10 @@ const App = () => {
   const [test, settest] = useState('');
   const [name, setName] = useState('');
 
+  // Always capitalize the first letter and lower case the rest
+  const nameSetHandler = (nameArg = name) => {
+    setName(nameArg.charAt(0).toUpperCase() + nameArg.slice(1).toLowerCase());
+  };
   // Fetches our GET route from the Express server.
   const callBackendAPI = async () => {
     const response = await fetch('/express_backend');
@@ -31,7 +35,7 @@ const App = () => {
 
   return (
     <div className="App">
-      <Jumbo nameHandler={setName} />
+      <Jumbo nameHandler={nameSetHandler} />
       <Routes name={name} />
       <PageViewLog />
       <h1>{test}</h1>
