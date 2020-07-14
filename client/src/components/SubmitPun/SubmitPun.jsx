@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { Form, Button } from 'react-bootstrap';
+import { Form, Button, Col } from 'react-bootstrap';
 import propTypes from 'prop-types';
 import { useFirestore, useFirestoreDocData } from 'reactfire';
 /**
@@ -25,13 +25,13 @@ const SubmitPun = ({ searchName }) => {
 
   // use firebase connection to add to collection
   const PushToFirebase = () => {
-    // get the value we try to update and add it to an array
+    // get the value we try to update
     const arrayArg = Object(puns)[searchName] ? [userPun, ...Object(puns)[searchName]] : [userPun];
-    // set values in firebase to the new array argument
     punRef.set({
       [searchName]: arrayArg,
     }, { merge: true })
       .catch((error) => {
+        // eslint-disable-next-line no-console
         console.log('Error setting document:', error);
       });
   };
@@ -39,16 +39,20 @@ const SubmitPun = ({ searchName }) => {
     <Form onSubmit={PushToFirebase}>
       <Form.Group>
         <Form.Label>
-          New pun for:
-          {searchName}
+          <h3>
+            New pun for:
+            {searchName}
+          </h3>
         </Form.Label>
-        <Form.Control
-          as="textarea"
-          rows="1"
-          name="punSumbission"
-          ref={register({ required: true, minLength: 50, maxLength: 500 })}
-          onChange={(e) => setUserPun(e.target.value)}
-        />
+        <Col xs="auto">
+          <Form.Control
+            as="textarea"
+            rows="3"
+            name="punSumbission"
+            ref={register({ required: true, minLength: 50, maxLength: 500 })}
+            onChange={(e) => setUserPun(e.target.value)}
+          />
+        </Col>
       </Form.Group>
       <Button variant="primary" type="submit">
         Submit Pun
